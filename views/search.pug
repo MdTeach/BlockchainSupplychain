@@ -7,12 +7,12 @@ html
     // <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     script(src="https://code.jquery.com/jquery-3.3.1.min.js")
   body
-    include nav
+    include nav 
     h1 Search the hash
     
     div
     form(method='POST' action='search')
-      input(name='sender', type='text', placeholder='Enter the block hash')
+      input(name='hash', type='text', placeholder='Enter the block hash')
       input#send(type='submit', value='GO')
    
     div#root
