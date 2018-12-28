@@ -7,7 +7,7 @@ generateButton.addEventListener('click',(e)=>{
         let url = window.location.href
         let arr = url.split("/");
         let result = arr[0] + "//" + arr[2]
-        result+="?hash="+data;
+        result+="/search?hash="+data;
         dataText.value = "";
         create(result);
     }

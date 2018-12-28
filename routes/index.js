@@ -63,6 +63,43 @@ router.get('/home',(req,res)=>{
 });
 
 router.get('/search',(req,res)=>{
+    if(req.query.hash){
+        const hash = req.query.hash
+        let block = null;
+    
+        let isProducer = false;
+        let transactionsData = [];
+    
+        //Find the chain corresponding to the hash
+        blockChain.chain.forEach((item)=>{
+            if(sha256(JSON.stringify(item)) === hash){
+                block = item;
+            }
+        });
+        if(!block){
+            //Not found
+            return res.render("message",{message:{msg:"No product found"}});
+        }else{
+            //Found
+            while(isProducer == false){
+                let productHash = null;
+                transactionsData.push(block.transactions);
+                console.log(block);
+                productHash = block.transcations.ProductHash;
+                if(!productHash){
+                    isProducer = true
+                }else{
+                    blockChain.chain.forEach((item)=>{
+                        if(sha256(JSON.stringify(item)) === productHash){
+                            block = item;
+                            console.log("It was called")
+                        }
+                    });
+                }
+            }
+            return res.render("message",{message:transactionsData});
+        }
+    }
     return res.render('search');
 });
 
