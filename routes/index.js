@@ -158,8 +158,6 @@ router.post('/search',(req,res)=>{
         //Found
         while(isProducer == false){
             let productHash = null;
-            let newBlock = null;
-
             transactionsData.push(block.transactions);
             console.log(block);
             productHash = block.transcations.ProductHash;
@@ -168,7 +166,7 @@ router.post('/search',(req,res)=>{
             }else{
                 blockChain.chain.forEach((item)=>{
                     if(sha256(JSON.stringify(item)) === productHash){
-                        newBlock = item;
+                        block = item;
                         console.log("It was called")
                     }
                 });
@@ -176,6 +174,10 @@ router.post('/search',(req,res)=>{
         }
         return res.render("message",{message:transactionsData});
     }
+});
+
+router.get('/test',(req,res)=>{
+    res.render('/genQr')
 });
 
 module.exports = router;
