@@ -4,8 +4,12 @@ const dataText = document.getElementById("hash");
 generateButton.addEventListener('click',(e)=>{
     let data = dataText.value;
     if(data){
-        create();
+        let url = window.location.href
+        let arr = url.split("/");
+        let result = arr[0] + "//" + arr[2]
+        result+="?hash="+data;
         dataText.value = "";
+        create(result);
     }
 });
 

@@ -21,6 +21,6 @@ app.use('/', routes);
 
 
 //Deploying the server
-app.listen(80, () => {
+app.listen(80,'192.168.100.34',() => {
     console.log('The application is running on localhost:80')
 });

@@ -180,4 +180,8 @@ router.get('/test',(req,res)=>{
     res.render('genQr')
 });
 
+
+router.get('/scan',(req,res)=>{
+    res.render('qr.html')
+});
 module.exports = router;
