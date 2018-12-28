@@ -6,31 +6,51 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1')
     // <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     script(src="https://code.jquery.com/jquery-3.3.1.min.js")
+    link(rel='stylesheet', type='text/css', href='demo.css')
+    link(rel='stylesheet', type='text/css', href='style3.css')
+
   body
     include nav
-    h1 Producer Transactions
-
-    div
-    form(method='POST' action='producer')
-      input(name='PublisherKey', type='text', placeholder='Publisher Key')
+    
+    .container
       br
-      input(name='Publisher', type='text', placeholder='Publisher Name')
       br
-      input(name='ItemName', type='text', placeholder='Item Name')
       br
-      input(name='TechSpecs', type='text', placeholder='Item Tech Specs')
-      br
-      input(name='ItemInfo', type='text', placeholder='Item Info')
-      br
-      input(name='Location', type='text', placeholder='Location')
-      br
-      h3 Receiver Info
-      input(name='ReceiverKey', type='text', placeholder='Receiver Key')
-      br
-      input(name='ReceiverName', type='text', placeholder='ReceiverName')
-      br
-      input#send(type='submit', value='GO')
-   
-    div#root
+      section
+        #container_demo
+          a#toregister.hiddenanchor
+          a#tologin.hiddenanchor
+          #wrapper
+            #login.animate.form
+              form(method='POST', action='producer')
+                h1 Producer Transactions
+                p
+                  label.uname(for='username', data-icon='k')  Publisher Key
+                  input#username(name='PublisherKey', type='text', placeholder='V1 or V124')
+                p
+                  label.youpasswd(for='password', data-icon='n')  Publisher Name 
+                  input#password(name='Publisher', type='text', placeholder='Geo Tech')
+                p
+                  label.youpasswd(for='password', data-icon='p')  Item Name  
+                  input#password(name='ItemName', type='text', placeholder=' ')
+                p
+                  label.youpasswd(for='password', data-icon='p')  Item Tech Specs 
+                  input#password(name='ItemSpecs', type='text', placeholder='eg. ')
+                p
+                  label.youpasswd(for='password', data-icon='p')  Item Info
+                  input#password(name='ItemInfo', type='text', placeholder='eg. ')
+                p
+                  label.youpasswd(for='password', data-icon='p')  Location
+                  input#password(name='Location', type='text', placeholder='eg. ')
+                p
+                  label.youpasswd(for='password', data-icon='p')  Receiver Key 
+                  input#password(name='ReceiverKey', type='text', placeholder='eg. ')
+                p
+                  label.youpasswd(for='password', data-icon='p')  Receiver Name 
+                  input#password(name='ReceiverName', type='text', placeholder='eg. ')
+                p.login.button
+                  input#send(type='submit', value='Go')
+                p.change_link
+                  a.to_register(href='vendor') Vendor
 
   script(src='main.js')

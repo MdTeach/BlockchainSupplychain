@@ -9,7 +9,7 @@ const blockChain = new BlockChain();
  
 //Mine the block
 router.get('/mine',(req,res)=>{
-    blockChain.replaceChain();
+    
 
     let previousBlock = blockChain.getPreviousBlock();
     let previousProof = previousBlock['proof'];

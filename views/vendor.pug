@@ -6,26 +6,47 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1')
     // <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     script(src="https://code.jquery.com/jquery-3.3.1.min.js")
+    link(rel='stylesheet', type='text/css', href='demo.css')
+    link(rel='stylesheet', type='text/css', href='style3.css')
+
   body
     include nav
     h1 Vendor Transactions
 
-    div
-    form(method='POST' action='vendor')
-      input(name='ProductHash', type='text', placeholder='Product Hash')
-      br
-      input(name='VendorKey', type='text', placeholder='Vendor Key')
-      br
-      input(name='VendorName', type='text', placeholder='Vendor Name')
-      br
-      input(name='ReceiverKey', type='text', placeholder='Receiver Key')
-      br
-      input(name='ReceiverName', type='text', placeholder='Receiver Name')
-      br
-      input(name='Location', type='text', placeholder='Location')
-      br
-      input#send(type='submit', value='GO')
-   
-    div#root
+  .container
+    br
+    br
+    br
+    section
+      #container_demo
+        a#toregister.hiddenanchor
+        a#tologin.hiddenanchor
+        #wrapper
+          #login.animate.form
+            form(action='vendor',method='POST')
+              h1 Vendor Transactions
+              p
+                label.uname(for='username', data-icon='u')  Product Hash 
+                input#username(name='ProductHash', type='text', placeholder='9034hkdhs8hakdj')
+              p
+                label.uname(for='username', data-icon='u')  Vendor Key 
+                input#username(name='VendorKey', type='text', placeholder='9034hkdhs8hakdj')
+              p
+                label.uname(for='username', data-icon='u') Vendor Name
+                input#username(name='VendorName', type='text', placeholder='9034hkdhs8hakdj')
+              p
+                label.uname(for='username', data-icon='u')  Receiver Key
+                input#username(name='ReceiverKey', type='text', placeholder='9034hkdhs8hakdj')
+              p
+                label.uname(for='username', data-icon='u')  Receiver Name
+                input#username(name='ReceiverName', type='text', placeholder='9034hkdhs8hakdj')
+              p
+                label.uname(for='username', data-icon='u')  Location 
+                input#username(name='Location', type='text', placeholder='9034hkdhs8hakdj')
+              p.login.button
+                input#send(type='submit', value='Go')
+              p.change_link
+                a.to_register(href='producer') Producer
+
 
   script(src='main.js')

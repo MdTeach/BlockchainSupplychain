@@ -8,13 +8,12 @@ html
     script(src="https://code.jquery.com/jquery-3.3.1.min.js")
   body
     include nav 
-    h1 Search the hash
-    
+    h1(style='margin-left: 40%;') Search the hash
     div
-    form(method='POST' action='search')
+    form(style='margin-left: 41%;', method='POST', action='http://localhost/search')
       input(name='hash', type='text', placeholder='Enter the block hash')
       input#send(type='submit', value='GO')
-   
+
     div#root
 
   script(src='main.js')
