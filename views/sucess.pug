@@ -1,0 +1,38 @@
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title Success
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    script(src="https://code.jquery.com/jquery-3.3.1.min.js")
+  body
+    include nav
+
+    h3 The transaction was added sucessfully
+
+    h4 Transcation hash: 
+    h4#hash #{hash}
+
+    h4 Hash Qr code:
+    img(src=`${hashQr}`)
+
+    h4 You can search the product scanning below QR code:
+    div#search
+
+    script(type='text/javascript').
+      const search = document.getElementById("search");
+      const hash = document.getElementById("hash").innerText;
+      let url = window.location.href
+      let arr = url.split("/");
+      let result = arr[0] + "//" + arr[2]
+      result+="/search?hash="+hash;
+      let img = 'https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl='+encodeURIComponent(result);
+      search.innerHTML = "<img src='"+img+"'></img>"
+
+      
+
+
+    
+
+  script(src='main.js')

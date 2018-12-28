@@ -18,15 +18,9 @@ router.get('/mine',(req,res)=>{
     
 
     let block = blockChain.createBlock(proof,previousHash);
-    let response = {
-        message:'Congrats! transaction made sucessfully',
-        index:block["index"],
-        timestamp:block["timestamp"],
-        proof:block["proof"],
-        previousHash:block["previousHash"],
-        transactions:block["transcations"]
-    };
-    return res.render("message",{message:response});
+    let hash = sha256(JSON.stringify(block));
+    let hashQr = 'https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl='+encodeURIComponent(hash);
+    return res.render("sucess",{hash,hashQr});
 
 });
 
@@ -176,6 +170,7 @@ router.post('/vendor',(req,res)=>{
 });
 
 router.post('/search',(req,res)=>{
+    console.log("It was called");
     const hash = req.body.hash
     let block = null;
 

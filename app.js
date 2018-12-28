@@ -19,8 +19,7 @@ const routes = require('./routes/index');
 app.use('/', routes);
 
 
-
 //Deploying the server
-app.listen(80,'192.168.100.34',() => {
+app.listen(80,'192.168.10.133',() => {
     console.log('The application is running on localhost:80')
 });
