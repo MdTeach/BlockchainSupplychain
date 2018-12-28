@@ -77,8 +77,7 @@ router.get('/search',(req,res)=>{
             //Found
             while(isProducer == false){
                 let productHash = null;
-                transactionsData.push(block.transactions);
-                console.log(block);
+                transactionsData.push(block.transcations);
                 productHash = block.transcations.ProductHash;
                 if(!productHash){
                     isProducer = true
@@ -86,12 +85,15 @@ router.get('/search',(req,res)=>{
                     blockChain.chain.forEach((item)=>{
                         if(sha256(JSON.stringify(item)) === productHash){
                             block = item;
-                            console.log("It was called")
                         }
                     });
                 }
             }
-            return res.render("message",{message:transactionsData});
+            
+            //Need to formatt
+            let transactionsDataRev = transactionsData.reverse();
+            let parentData  = transactionsDataRev.shift();
+            return res.render("blocksearch",{parentData, transactionsDataRev});
         }
     }
     return res.render('search');
@@ -170,7 +172,6 @@ router.post('/vendor',(req,res)=>{
 });
 
 router.post('/search',(req,res)=>{
-    console.log("It was called");
     const hash = req.body.hash
     let block = null;
 
@@ -190,8 +191,7 @@ router.post('/search',(req,res)=>{
         //Found
         while(isProducer == false){
             let productHash = null;
-            transactionsData.push(block.transactions);
-            console.log(block);
+            transactionsData.push(block.transcations);
             productHash = block.transcations.ProductHash;
             if(!productHash){
                 isProducer = true
@@ -199,12 +199,15 @@ router.post('/search',(req,res)=>{
                 blockChain.chain.forEach((item)=>{
                     if(sha256(JSON.stringify(item)) === productHash){
                         block = item;
-                        console.log("It was called")
                     }
                 });
             }
         }
-        return res.render("message",{message:transactionsData});
+        
+        //Need to formatt
+        let transactionsDataRev = transactionsData.reverse();
+        let parentData  = transactionsDataRev.shift();
+        return res.render("blocksearch",{parentData, transactionsDataRev});
     }
 });
 

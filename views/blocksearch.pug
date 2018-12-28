@@ -1,0 +1,57 @@
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title Success
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    script(src="https://code.jquery.com/jquery-3.3.1.min.js")
+    style.
+      #result {
+          margin-left:20%;
+          margin-right:20%;
+          padding-left:10%;
+          border-radius: 25px;
+          border: 2px solid #73AD21;
+      }
+
+      #note{
+          margin-left:20%;
+          margin-right:20%;
+          padding-left:10%;
+          border-radius: 25px;
+          border: 2px solid #e82106;
+      }
+  body
+    include nav
+    br
+    div#result
+        br
+        h3 Production Info: 
+        h4 Item Name: #{parentData.ItemName}
+        h4 Item Specs: #{parentData.ItemSpecs}
+        h4 Item Info: #{parentData.ItemInfo}
+        h4 Made in: #{parentData.Location}
+        h4 Sent to: #{parentData.ReceiverKey}
+        h4 Receiver id: #{parentData.ReceiverName}
+        br
+    
+
+    each blocks in transactionsDataRev
+        br
+        div#result
+            h3 Shipping Info
+            each value,key in blocks
+                if key != "ProductHash"
+                  p #{key} = #{value}
+        br
+    
+    div#note
+      h3 Note: If you are costumer donot accept the product if the retailer is differnt from the above data
+
+      
+
+
+    
+
+  script(src='main.js')
