@@ -177,7 +177,7 @@ router.post('/search',(req,res)=>{
 });
 
 router.get('/test',(req,res)=>{
-    res.render('/genQr')
+    res.render('genQr')
 });
 
 module.exports = router;

@@ -11,11 +11,9 @@ html
     h1 Search the hash
     
     div
-    form(method='POST' action='search')
-      input(name='hash', type='text', placeholder='Enter the block hash')
-      input#send(type='submit', value='GO')
+      input(id='hash', type='text', placeholder='Enter the block hash')
+      button#send Generate Qr
    
     div#root
 
-  script(src='main.js')
   script(src='qr.js')
